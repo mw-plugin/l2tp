@@ -16,19 +16,17 @@ Install_l2tp()
 {
 	isStart=""
 	echo '正在安装脚本文件...' > $install_tmp
-	mkdir -p $serverPath/l2tp
-	echo '1.0' > $serverPath/l2tp/version.pl
-
-	cp -rf scripts/l2tp.sh $serverPath/l2tp
-	chmod +x  $serverPath/l2tp/l2tp.sh
 
 	if [ "Darwin" == "$SYSOS" ];then
 		echo 'macosx unavailable' > $install_tmp
 		exit 0 
 	fi
 
-	/bin/sh $serverPath/l2tp/l2tp.sh
+	mkdir -p $serverPath/l2tp
+	cd $serverPath/l2tp
+	wget https://get.vpnsetup.net -O vpn.sh && sudo sh vpn.sh
 
+	echo '1.0' > $serverPath/l2tp/version.pl
 	echo 'install complete' > $install_tmp
 }
 

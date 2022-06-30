@@ -62,12 +62,12 @@ def initConf():
     l2tp_cs = getServerDir() + '/chap-secrets'
     if not os.path.exists(l2tp_cs):
         mw.execShell('cp -rf ' + getPluginDir() +
-                     '/tmp/chap-secrets' + ' ' + getServerDir())
+                     '/conf/chap-secrets' + ' ' + getServerDir())
 
     l2tp_is = getServerDir() + '/ipsec.secrets'
     if not os.path.exists(l2tp_is):
         mw.execShell('cp -rf ' + getPluginDir() +
-                     '/tmp/ipsec.secrets' + ' ' + getServerDir())
+                     '/conf/ipsec.secrets' + ' ' + getServerDir())
 
 
 def start():
